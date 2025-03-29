@@ -1,14 +1,14 @@
 export async function getPlayerInfo(filterList = []) {
     let attempts = 0;
-    const MAX_ATTEMPTS = 5;
+    const MAX_ATTEMPTS = 7;
     try {
-        let validFighter = false;
+        let validPlayer = false;
         let data;
         let randomPlayerId;
 
-        while (!validFighter && attempts < MAX_ATTEMPTS) {
+        while (!validPlayer && attempts < MAX_ATTEMPTS) {
             attempts++;
-            randomPlayerId = Math.floor(Math.random() * 5000) + 1;
+            randomPlayerId = Math.floor(Math.random() * 50) + 1;
 
             const response = await fetch(`https://v1.american-football.api-sports.io/players?id=${randomPlayerId}`, {
                 "method": "GET",
@@ -24,19 +24,17 @@ export async function getPlayerInfo(filterList = []) {
 
             data = await response.json();
 
-            // Check if we got a valid fighter that's not in banned categories
             if (data.response && data.response.length > 0) {
-                const fighterCategory = data.response[0].position;
+                const playerCategory = data.response[0].position;
 
-                // If no filter list provided, or fighter's category isn't banned
-                if (!filterList.length || !fighterCategory || !filterList.includes(fighterCategory)) {
-                    validFighter = true;
+                if (!filterList.length || !filterList.includes(playerCategory)) {
+                    validPlayer = true;
                 }
             }
         }
 
         if (attempts >= MAX_ATTEMPTS) {
-            throw new Error('Max attempts reached finding a non-banned fighter');
+            throw new Error('Max attempts reached finding a non-banned player');
         }
 
         const playerInfo = {
@@ -54,7 +52,7 @@ export async function getPlayerInfo(filterList = []) {
         console.error('Error fetching player information:', err);
         return {
             name: attempts >= MAX_ATTEMPTS
-                ? 'Could not find fighter not in banned categories. Try removing some bans.'
+                ? 'Could not find player not in banned categories in 7 tries. Try again.'
                 : 'Sorry, I\'m too broke to find more than 10 fighters a minute. Please try again later.',
             age: '',
             image: null,
