@@ -1,32 +1,32 @@
-# Web Development Project 4 - *Name of App Here*
+# Web Development Project 4 - *Ball Knowledge*
 
-Submitted by: **Your Name Here**
+Submitted by: **Munashe Mukweya**
 
-This web app: **insert description**
+This web app: **Ball knowledge is an app that calls displays information about 50 random NFL players. This information is sourced from api-sports.io using their API. Users can ban a player's position from being seen again by clicking it and adding it to the ban list. Users can also remove the banned position by clicking on it again.**
 
-Time spent: **X** hours spent in total
+Time spent: **3** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed: 
 
-- [ ] **Application features a button that creates a new API fetch request on click and displays at least three attributes and an image obtained from the returned JSON data**
+- [X] **Application features a button that creates a new API fetch request on click and displays at least three attributes and an image obtained from the returned JSON data**
   - The type of attribute displayed for each image should be consistent across API calls (i.e. if you are using a cat API, and display the color, breed, and age in response to an initial API call, subsequent button clicks should also result in the color, breed, and age being displayed)
-- [ ] **Only one item/data from API call response is viewable at a time and at least one image is displayed per API call**
+- [X] **Only one item/data from API call response is viewable at a time and at least one image is displayed per API call**
   - A single result of an API call is displayed at a time 
   - Displayed attributes should match the displayed image (i.e., if showing a picture of a Siamese cat and the attribute breed, the displayed breed should be 'Siamese' not 'Ragdoll' or another breed that doesn't match)
   - There is at least one image per API call
-- [ ] **API call response results should appear random to the user**
+- [X] **API call response results should appear random to the user**
   - Clicking on the API call button should generate a seemingly random new result each time
   - Note: Repeat results are permitted but the API used should have a reasonably large amount of data and repeats should not be frequent
-- [ ] **Clicking on a displayed value for one attribute adds it to a displayed ban **list**
+- [X] **Clicking on a displayed value for one attribute adds it to a displayed ban list**
   - At least one attribute for each API result should be clickable
   - Clicking on a clickable attribute not on the ban list, should imnmediately add it to the ban list 
   - Clicking on an attribute in the ban list should immediately remove it from the ban list 
-- [ ] **Attributes on the ban list prevent further images/API results with that attribute from being displayed**
+- [X] **Attributes on the ban list prevent further images/API results with that attribute from being displayed**
   - Clicking on the API call button should not result in any image/attributes with attribute values in the ban list being displayed (ex. Using a cat API, if the ban list includes the value 'Siberian' for the breed attribute, clicking on the Discover button should never result in a Siberian cat being displayed)
   - Note: More attribute values on the ban list may result in a higher frequency of repeat results
-  -  [ ] _To ensure an accurate grade, your recording **must** show that when clicked, an attribute in the ban list is immediately removed from the list of banned attributes_
+  -  [X] _To ensure an accurate grade, your recording **must** show that when clicked, an attribute in the ban list is immediately removed from the list of banned attributes_
 
 
 The following **optional** features are implemented:
@@ -47,7 +47,7 @@ Here's a walkthrough of implemented user stories:
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
+GIF created with LICECap
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
@@ -55,11 +55,11 @@ GIF created with ...
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+The API I chose does not really allow for filtering the results in any significant way. I read through the documentation many times trying to figure it out and I could not find any way. So I had to get creative and filter using regular JavaScript methods and retries. It's definitely not the best method to achieve this result but I did not see how else to get around the problem without changing the API endpoint.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2025] [Munashe Mukweya]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
